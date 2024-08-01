@@ -4,8 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e8c3c14ff33b199b4a0838993eb8423",
+    "content-hash": "f47ff1e61649dc4a46634e875c29ce1f",
     "packages": [
+        {
+            "name": "bonecms/laravel-captcha",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igoshev/laravel-captcha.git",
+                "reference": "4424cda4a9fa04398bb37ed496a82e9991a0baae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igoshev/laravel-captcha/zipball/4424cda4a9fa04398bb37ed496a82e9991a0baae",
+                "reference": "4424cda4a9fa04398bb37ed496a82e9991a0baae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Igoshev\\Captcha\\Providers\\CaptchaServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Igoshev\\Captcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dmitriy Igoshev",
+                    "email": "dmitry.igo@gmail.com"
+                }
+            ],
+            "description": "Captcha integration for the Laravel 5",
+            "homepage": "https://github.com/igoshev/laravel-captcha",
+            "keywords": [
+                "Laravel Captcha",
+                "captcha"
+            ],
+            "support": {
+                "issues": "https://github.com/igoshev/laravel-captcha/issues",
+                "source": "https://github.com/igoshev/laravel-captcha"
+            },
+            "time": "2018-01-29T16:55:07+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",
