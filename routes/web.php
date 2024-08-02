@@ -1,18 +1,33 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
-Route::get('/', function () {
+Route::post('/users/create', [UserController::class, 'save']) ->name('users.save');
+
+Route::GET('/users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+
+Route::POST('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
+
+Route::get('/users', [UserController::class, 'index']) -> name('users.index');
+
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
+Route::get('/', function (){
     return view('welcome');
 });
-
-
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
-Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
-Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
