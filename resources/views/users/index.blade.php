@@ -58,8 +58,8 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {!! $users->links() !!}
                         </div>
+                        {!! $users->links() !!}
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
