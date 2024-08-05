@@ -15,8 +15,8 @@
         <form action="{{ route('users.save') }}" method="POST">
             @csrf
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                <label for="name">User Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('username') }}">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>

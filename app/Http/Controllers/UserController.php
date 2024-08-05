@@ -10,8 +10,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(2);
+        $users = User::paginate(5);
         return view('users.index', compact('users'));
+
     }
     public function create()
     {
@@ -33,7 +34,8 @@ class UserController extends Controller
     {
         $validateData = $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email,'.$id,]);
+            'email' => 'required|email|unique:users,email,'.$id,
+            'status' => 'required|int']);
         $user = User::findorFail($id);
         $user -> update($validateData);
         return redirect() -> route('users.index') -> with('success', 'User updated!');
@@ -48,5 +50,17 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         return view('users.show', compact('user'));
+    }
+    public function searchByUsername(Request $request)
+    {
+        $username = $request->input('username');
+        $users = User::where('username', 'LIKE', '%' . $username . '%')->paginate(5);
+        return view('users.index', compact('users'))->with('success', 'Search results for username: ' . $username);
+    }
+    public function searchByEmail(Request $request)
+    {
+        $email = $request->input('email');
+        $users = User::where('email', 'LIKE', '%' . $email . '%')->paginate(5);
+        return view('users.index', compact('users'))->with('success', 'Search results for email: ' . $email);
     }
 }
